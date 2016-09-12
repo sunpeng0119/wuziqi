@@ -13,7 +13,12 @@ import valueObject.PiectConstant;
 import valueObject.PiectVO;
 
 public class PiectHelper {
-	
+	/**
+	 * 根据鼠标点击时间获取棋子
+	 * @param e
+	 * @param color
+	 * @return
+	 */
 	public static PiectVO getPiectVO(MouseEvent e,int color)
 	{
 		PiectVO piectVO = new PiectVO();
@@ -25,7 +30,11 @@ public class PiectHelper {
 		
 		return piectVO;
 	}
-	
+	/**
+	 * 在画板上画棋子
+	 * @param piectVO
+	 * @param graphics
+	 */
 	public static void drawPiect(PiectVO piectVO ,Graphics graphics)
 	{
 		graphics.setColor(piectVO.getColor()==0?Color.white:Color.black);
@@ -33,7 +42,12 @@ public class PiectHelper {
 				PiectConstant.PIECTSIZE, PiectConstant.PIECTSIZE);
 		
 	}
-	
+	/**
+	 * 判断棋子是不是已经存在
+	 * @param existPiects
+	 * @param piectVO
+	 * @return
+	 */
 	public static boolean isExistPiect(List<PiectVO> existPiects,PiectVO piectVO)
 	{
 		if (existPiects ==null) {
@@ -46,7 +60,11 @@ public class PiectHelper {
 		}
 		return false;
 	}
-	
+	/**
+	 * 判断是够有完成的五子棋的棋子，有的话放到context中
+	 * @param piectVOs
+	 * @return
+	 */
 	public static boolean haveFivePiects(List<PiectVO> piectVOs)
 	{
 		boolean result = false;
@@ -89,7 +107,10 @@ public class PiectHelper {
 		return result;
 		
 	}
-	
+	/**
+	 * 已经有完成的五子棋，提示获胜者并且画出完成的五子棋
+	 * @param graphics
+	 */
 	public static void winner(Graphics graphics)
 	{
 		Context context = GameContext.getGanmeContext();

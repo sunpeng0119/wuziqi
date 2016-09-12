@@ -41,7 +41,10 @@ public class PiectVO implements Comparable<PiectVO>{
 		return this.horizontal==piectVO.getHorizontal()&&
 				this.vertical==piectVO.getVertical();
 	}
-	
+	/**
+	 * 获取一个棋子可能完成的五子棋KEY值
+	 * @return
+	 */
 	public List<String> getGobangKey()
 	{
 		List<String> result = new ArrayList<String>();
@@ -52,6 +55,11 @@ public class PiectVO implements Comparable<PiectVO>{
 		return result;
 	}
 	
+	/**
+	 * 判断两个棋子是否是临近棋子
+	 * @param piect
+	 * @return
+	 */
 	public boolean isNearPiect(PiectVO piect)
 	{
 		if (Math.abs(this.horizontal-piect.getHorizontal())==PiectConstant.PIECTSIZE&&Math.abs(this.vertical-piect.getVertical())==PiectConstant.PIECTSIZE) {
